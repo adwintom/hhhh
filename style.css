@@ -1,161 +1,152 @@
-/* --- THE MANLY DARK THEME CSS --- */
+/* --- LUXURY DARK TECH VIBE (NO IMAGE) --- */
 
-/* Basic reset and overall page setting */
 body {
-    /* Strong system font stack for a sharp, confident look */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #121212; /* Blackish Theme background */
-    color: #e0e0e0; /* Off-white for readability */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #121212; 
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-/* Header/Banner - Bold and Stark */
-header {
-    background-color: #0a0a0a; /* Pure black header */
-    color: #ffffff;
-    text-align: center;
-    padding: 70px 20px;
-    /* Deep slate accent border at the bottom */
-    border-bottom: 3px solid #37474f; 
-    /* Subtle glow instead of shadow on dark theme */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+/* Accent Color Variables */
+:root {
+    --copper: #C59B6D;
+    --copper-dark: #A37C50;
+    --box-bg: #1a1a1a;
 }
 
-header h1 {
+/* HERO SECTION (Centered, Text Only) */
+.hero {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+    background-color: #000000;
+    border-bottom: 2px solid var(--copper);
+    padding: 80px 20px;
+    min-height: 250px;
+}
+
+.hero-text {
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    color: var(--copper);
+    font-size: 4.5rem;
     margin: 0;
-    font-size: 3rem; /* Larger, bolder name */
-    text-transform: uppercase; /* All caps for confidence */
-    letter-spacing: 3px; /* Spread out for a handsome, premium feel */
-    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px; 
+    font-weight: 900;
 }
 
-header p {
-    margin: 15px 0 0 0;
-    font-size: 1.3rem;
-    color: #90a4ae; /* Muted accent color for subtitle */
-    font-weight: 300;
-}
-
-/* Main content container */
-.container {
-    max-width: 850px; /* Slightly wider stance */
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Section styling - Slate boxes */
-section {
-    background-color: #1e1e1e; /* Dark Gray boxes */
-    padding: 40px;
-    margin-bottom: 25px;
-    border-radius: 4px; /* Sharper corners for a manly look */
-    border: 1px solid #333333; /* Very subtle border separator */
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-}
-
-/* Section Headings */
-h2 {
+.hero-text h2 {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.hero-text h3 {
+    color: var(--copper-dark);
+    font-size: 1.2rem;
+    margin: 5px 0 0 0;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+/* BOTTOM SECTION (3-Column Grid) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 50px 10%;
+    background-color: #181818;
+}
+
+.card {
+    background-color: var(--box-bg);
+    border: 1px solid var(--copper-dark);
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+    color: var(--copper);
+    font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    /* Strong slate accent underline */
-    border-bottom: 2px solid #37474f; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Skills list styling */
-ul {
-    list-style-type: none; /* Removes bullets for cleaner look */
-    padding: 0;
+.card p, .card li {
+    font-size: 0.95rem;
+    color: #b0b0b0;
 }
 
-li {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    color: #e0e0e0;
+.card ul {
+    padding-left: 20px;
 }
 
-li strong {
-    color: #ffffff; /* Bold skills in white */
-    font-weight: 700;
+.card strong {
+    color: #ffffff;
 }
 
-li em {
-    color: #90a4ae; /* Italics in muted slate */
-}
-
-/* Feedback Form Styles */
+/* FORM STYLING */
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 25px;
+    gap: 15px;
 }
 
 input, textarea {
-    padding: 15px;
-    background-color: #2a2a2a; /* Darker background for inputs */
-    color: #ffffff;
-    border: 1px solid #444444; /* Dark gray border */
-    border-radius: 2px; /* Very sharp corners */
+    background-color: #111111;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 12px;
     font-family: inherit;
-    font-size: 1rem;
-}
-
-input::placeholder, textarea::placeholder {
-    color: #757575; /* Grayed out placeholder text */
+    border-radius: 2px;
 }
 
 input:focus, textarea:focus {
     outline: none;
-    border-color: #546e7a; /* Input focus highlight */
+    border-color: var(--copper);
 }
 
-/* Manly Button Style */
 button {
-    background-color: #37474f; /* Slate Accent Blue */
-    color: #ffffff;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 2px; /* Sharp corners */
+    background-color: transparent;
+    color: var(--copper);
+    border: 1px solid var(--copper);
+    padding: 12px;
     cursor: pointer;
-    font-size: 1rem;
+    text-transform: uppercase;
     font-weight: bold;
-    text-transform: uppercase; /* All caps button text */
     letter-spacing: 1px;
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    transition: all 0.3s ease;
 }
 
-/* Hover effect for the button */
 button:hover {
-    background-color: #546e7a; /* Lighter Slate highlight on hover */
+    background-color: var(--copper);
+    color: #000;
 }
 
-/* Success Message Style for Dark Theme */
 #successMessage {
     display: none;
-    background-color: #1c3f2b; /* Deep Green background (muted for dark theme) */
-    color: #a3e6b5; /* Light Green text */
-    padding: 20px;
-    border-radius: 2px;
+    color: var(--copper);
+    border: 1px solid var(--copper);
+    padding: 15px;
     text-align: center;
-    font-weight: bold;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
-/* Footer styling */
 footer {
     text-align: center;
     padding: 30px;
-    margin-top: 50px;
-    background-color: #0a0a0a; /* Dark footer match header */
-    color: #555555; /* Dark gray text */
+    color: #555;
     font-size: 0.85rem;
-    letter-spacing: 1px;
-    border-top: 1px solid #1e1e1e;
+    background-color: #0a0a0a;
 }
