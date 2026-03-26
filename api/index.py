@@ -3,10 +3,9 @@ from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from datetime import datetime
 
-# Tells Flask to look "up" one level for the templates folder
+# Clean routing back to your templates folder
 app = Flask(__name__, template_folder='../templates')
 
-# Connect to MongoDB
 MONGO_URI = os.environ.get("MONGO_URI")
 client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
 
