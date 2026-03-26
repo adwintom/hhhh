@@ -1,44 +1,41 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from datetime import datetime
 
-# CRITICAL: This tells Flask to look "up" one level for the templates folder
+# Tells Flask to look "up" one level for the templates folder
 app = Flask(__name__, template_folder='../templates')
 
-# Connect to MongoDB using an Environment Variable (Security)
-# Ensure you have added "MONGO_URI" in your Vercel Dashboard Settings
+# Connect to MongoDB
 MONGO_URI = os.environ.get("MONGO_URI")
 client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
-db = client.vibe_db
-collection = db.updates
+
+db = client.portfolio_db
+collection = db.feedbacks
 
 @app.route('/')
 def index():
-    try:
-        # Get all updates, newest first
-        posts = list(collection.find().sort("_id", -1))
-    except Exception as e:
-        print(f"Database Error: {e}")
-        posts = []
-    return render_template('index.html', posts=posts)
+    return render_template('index.html')
 
-@app.route('/add', methods=['POST'])
-def add():
-    skill = request.form.get('skill')
-    notes = request.form.get('notes')
-    if skill:
+@app.route('/submit', methods=['POST'])
+def submit():
+    data = request.get_json()
+    name = data.get('name')
+    message = data.get('message')
+    
+    if name and message:
         try:
             collection.insert_one({
-                "skill": skill,
-                "notes": notes,
+                "name": name,
+                "message": message,
                 "date": datetime.now().strftime("%Y-%m-%d %H:%M")
             })
+            return jsonify({"status": "success"}), 200
         except Exception as e:
             print(f"Insert Error: {e}")
+            return jsonify({"status": "error", "message": str(e)}), 500
             
-    return redirect('/')
+    return jsonify({"status": "bad request"}), 400
 
-# Required for local testing, Vercel uses the 'app' object directly
 if __name__ == "__main__":
     app.run()

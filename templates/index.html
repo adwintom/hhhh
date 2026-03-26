@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adwin Tom - Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Adwin Tom</h1>
+        <p>1st Year BSc AI & ML Student | Kristu Jayanti (Deemed to be University)</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>About Me</h2>
+            <p>Hello! My name is Adwin Tom. I am currently in my first year studying BSc Artificial Intelligence and Machine Learning. I am a great learner, highly motivated, and I will try my absolute best to learn new concepts and master new technologies.</p>
+        </section>
+
+        <section>
+            <h2>My Skills</h2>
+            <p>I am at the beginning of my coding journey, but I have already built a foundation in the following areas:</p>
+            <ul>
+                <li><strong>HTML & CSS:</strong> Creating web pages and designing user interfaces.</li>
+                <li><strong>Python (Flask):</strong> Building backend servers and connecting databases.</li>
+                <li><strong>C Programming:</strong> Writing basic logic and understanding core computer science concepts.</li>
+            </ul>
+            <p><em>I am very excited to expand this list and learn other programming languages soon!</em></p>
+        </section>
+
+        <section>
+            <h2>Leave Feedback</h2>
+            <p>I'd love to hear your thoughts on my new portfolio!</p>
+            
+            <form id="feedbackForm">
+                <input type="text" id="visitorName" placeholder="Your Name" required>
+                <textarea id="visitorMessage" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Feedback</button>
+            </form>
+
+            <div id="successMessage">
+                Thank you! Adwin has received your feedback.
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Adwin Tom. Built with enthusiasm.</p>
+    </footer>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+            
+            const typedName = document.getElementById('visitorName').value;
+            const typedMessage = document.getElementById('visitorMessage').value;
+            const submitBtn = document.querySelector('button[type="submit"]');
+            
+            submitBtn.innerText = "Sending...";
+
+            try {
+                // Sends data to the Python /submit route
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: typedName, message: typedMessage })
+                });
+
+                if (response.ok) {
+                    document.getElementById('feedbackForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert("Oops! The server had an issue saving your feedback.");
+                    submitBtn.innerText = "Send Feedback";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Could not connect to the database.");
+                submitBtn.innerText = "Send Feedback";
+            }
+        });
+    </script>
+
+</body>
+</html>
