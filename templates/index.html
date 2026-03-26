@@ -4,36 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adwin Tom - Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- FIERY RED & BLACK TECH VIBE --- */
+        /* --- FIERY RED & BLACK (INDUSTRIAL TECH VIBE) --- */
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0b0f19; /* Deep Black/Navy Background */
-            color: #f3f4f6; /* Crisp off-white text */
+            /* Rajdhani gives a squared-off, futuristic coding vibe */
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #0b0f19; 
+            color: #f3f4f6; 
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            font-size: 1.1rem; /* Slightly larger base text */
         }
 
-        /* Accent Color Variables */
         :root {
-            --red-accent: #ff3b30; /* Fiery Bright Red */
-            --red-dark: #7f1d1d; /* Deep Crimson Border Color */
-            --box-bg: #111827; /* Dark Slate for cards */
+            --red-accent: #ff3b30; 
+            --red-dark: #7f1d1d; 
+            --box-bg: #111827; 
             --text-muted: #9ca3af;
         }
 
-        /* HERO SECTION (Centered, Text Only) */
+        /* HERO SECTION */
         .hero {
             display: flex;
             justify-content: center; 
             align-items: center;     
             text-align: center;      
-            background-color: #050505; /* Pure Black Header */
-            border-bottom: 2px solid var(--red-accent);
+            background-color: #050505; 
+            border-bottom: 3px solid var(--red-accent);
             padding: 80px 20px;
             min-height: 250px;
+            /* Subtle red glow under the header */
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.1); 
         }
 
         .hero-text {
@@ -41,28 +49,32 @@
         }
 
         .hero-text h1 {
+            /* Bebas Neue: Massive, bold, and commanding */
+            font-family: 'Bebas Neue', sans-serif;
             color: var(--red-accent);
-            font-size: 4.5rem;
+            font-size: 7rem; /* Made huge for maximum impact */
             margin: 0;
-            text-transform: uppercase;
+            line-height: 1;
             letter-spacing: 4px; 
-            font-weight: 900;
+            text-shadow: 2px 2px 0px #000000;
         }
 
         .hero-text h2 {
             color: #ffffff;
             font-size: 1.8rem;
-            margin: 10px 0;
+            margin: 15px 0 5px 0;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .hero-text h3 {
             color: var(--text-muted);
             font-size: 1.2rem;
-            margin: 5px 0 0 0;
+            margin: 0;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 3px; 
+            font-weight: 600;
         }
 
         /* BOTTOM SECTION (3-Column Grid) */
@@ -70,32 +82,33 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 50px 10%;
+            padding: 60px 10%;
             background-color: #0b0f19;
         }
 
         .card {
             background-color: var(--box-bg);
             border: 1px solid var(--red-dark);
-            border-radius: 4px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            border-radius: 2px; /* Sharper corners */
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8); 
         }
 
         .card h2 {
+            font-family: 'Bebas Neue', sans-serif;
             color: var(--red-accent);
-            font-size: 1.5rem;
+            font-size: 2.2rem;
             margin-top: 0;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--red-dark);
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--red-dark);
             padding-bottom: 10px;
         }
 
         .card p, .card li {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
+            font-weight: 400;
         }
 
         .card ul {
@@ -104,6 +117,7 @@
 
         .card strong {
             color: #ffffff;
+            font-weight: 700;
         }
 
         /* FORM STYLING */
@@ -117,50 +131,60 @@
             background-color: #030712;
             border: 1px solid #1f2937;
             color: #fff;
-            padding: 12px;
-            font-family: inherit;
+            padding: 15px; 
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
             border-radius: 2px;
+            font-size: 1rem;
         }
 
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--red-accent);
+            box-shadow: 0 0 10px rgba(255, 59, 48, 0.2);
         }
 
         button {
+            font-family: 'Bebas Neue', sans-serif;
             background-color: transparent;
             color: var(--red-accent);
-            border: 1px solid var(--red-accent);
+            border: 2px solid var(--red-accent); 
             padding: 12px;
             cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
             transition: all 0.3s ease;
         }
 
         button:hover {
             background-color: var(--red-accent);
             color: #000;
+            transform: translateY(-2px); 
         }
 
         #successMessage {
             display: none;
-            color: #000000; /* Emerald Green for success - stands out well against red */
+            color: #10b981; 
             border: 1px solid #065f46;
             background-color: #022c22;
             padding: 15px;
             text-align: center;
             margin-top: 15px;
             border-radius: 2px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             color: #4b5563;
-            font-size: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
             background-color: #050505;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid #1a1a1a;
         }
     </style>
 </head>
@@ -214,7 +238,7 @@
             const typedMessage = document.getElementById('visitorMessage').value;
             const submitBtn = document.querySelector('button[type="submit"]');
             
-            submitBtn.innerText = "Sending...";
+            submitBtn.innerText = "SENDING...";
 
             try {
                 const response = await fetch('/submit', {
@@ -228,12 +252,12 @@
                     document.getElementById('successMessage').style.display = 'block';
                 } else {
                     alert("Oops! The server had an issue saving your feedback.");
-                    submitBtn.innerText = "Submit";
+                    submitBtn.innerText = "SUBMIT";
                 }
             } catch (error) {
                 console.error("Error:", error);
                 alert("Could not connect to the database.");
-                submitBtn.innerText = "Submit";
+                submitBtn.innerText = "SUBMIT";
             }
         });
     </script>
