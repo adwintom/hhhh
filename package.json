@@ -1,6 +1,0 @@
-{
-  "name": "adwin-portfolio",
-  "dependencies": {
-    "mongoose": "^8.2.0"
-  }
-}
