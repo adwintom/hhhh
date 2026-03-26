@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from datetime import datetime
 
-# Clean routing back to your templates folder
+# Routing back to your templates folder
 app = Flask(__name__, template_folder='../templates')
 
 MONGO_URI = os.environ.get("MONGO_URI")
