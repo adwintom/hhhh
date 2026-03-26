@@ -4,45 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adwin Tom - Portfolio</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Adwin Tom</h1>
-        <p>1st Year BSc AI & ML Student | Kristu Jayanti (Deemed to be University)</p>
+    <header class="hero">
+        <div class="hero-text">
+            <h1>ADWIN TOM</h1>
+            <h2>1ST YEAR BSC AI & ML STUDENT</h2>
+            <h3>KRISTU JAYANTI (DEEMED TO BE UNIVERSITY)</h3>
+        </div>
     </header>
 
-    <div class="container">
-        <section>
-            <h2>About Me</h2>
-            <p>Hello! My name is Adwin Tom. I am currently in my first year studying BSc Artificial Intelligence and Machine Learning. I am a great learner, highly motivated, and I will try my absolute best to learn new concepts and master new technologies.</p>
+    <div class="grid-container">
+        <section class="card">
+            <h2>ABOUT ME</h2>
+            <p>Adwin Tom is a highly motivated student diving into the world of artificial intelligence. I am a great learner, positioned at the intersection of modern technology and high-end software development.</p>
+            <p>I am dedicated to mastering new technologies and solving complex problems with cutting-edge solutions.</p>
         </section>
 
-        <section>
-            <h2>My Skills</h2>
-            <p>I am at the beginning of my coding journey, but I have already built a foundation in the following areas:</p>
+        <section class="card">
+            <h2>MY SKILLS</h2>
             <ul>
-                <li><strong>HTML & CSS:</strong> Creating web pages and designing user interfaces.</li>
-                <li><strong>Python (Flask):</strong> Building backend servers and connecting databases.</li>
-                <li><strong>C Programming:</strong> Writing basic logic and understanding core computer science concepts.</li>
+                <li><strong>HTML & CSS:</strong> Creating modern, luxury web environments.</li>
+                <li><strong>Python (Flask):</strong> Building robust backend servers and database connections.</li>
+                <li><strong>C Programming:</strong> Core algorithmic logic and memory management.</li>
             </ul>
-            <p><em>I am very excited to expand this list and learn other programming languages soon!</em></p>
+            <p><em>Continuously expanding my technological arsenal.</em></p>
         </section>
 
-        <section>
-            <h2>Leave Feedback</h2>
-            <p>I'd love to hear your thoughts on my new portfolio!</p>
-            
+        <section class="card">
+            <h2>LEAVE FEEDBACK</h2>
             <form id="feedbackForm">
-                <input type="text" id="visitorName" placeholder="Your Name" required>
+                <input type="text" id="visitorName" placeholder="Name" required>
                 <textarea id="visitorMessage" rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Feedback</button>
+                <button type="submit">Submit</button>
             </form>
-
-            <div id="successMessage">
-                Thank you! Adwin has received your feedback.
-            </div>
+            <div id="successMessage">Feedback Received. Thank You.</div>
         </section>
     </div>
 
@@ -61,7 +59,6 @@
             submitBtn.innerText = "Sending...";
 
             try {
-                // Sends data to the Python /submit route
                 const response = await fetch('/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -73,12 +70,12 @@
                     document.getElementById('successMessage').style.display = 'block';
                 } else {
                     alert("Oops! The server had an issue saving your feedback.");
-                    submitBtn.innerText = "Send Feedback";
+                    submitBtn.innerText = "Submit";
                 }
             } catch (error) {
                 console.error("Error:", error);
                 alert("Could not connect to the database.");
-                submitBtn.innerText = "Send Feedback";
+                submitBtn.innerText = "Submit";
             }
         });
     </script>
