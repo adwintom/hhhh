@@ -1,267 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adwin Tom - Portfolio</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adwin Tom | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b1d26;color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px}
+header h2{color:#fff}
+nav a{margin:0 15px;color:#aaa;text-decoration:none}
+nav a:hover{color:#ff6b4a}
 
-    <style>
-        /* --- FIERY RED TERMINAL VIBE --- */
+.hero{display:flex;align-items:center;justify-content:space-between;padding:50px}
+.hero-text h1{font-size:40px}
+.hero-text span{color:#ff6b4a}
+.hero-text h2{font-size:28px;margin:10px 0}
+.buttons{margin-top:20px}
+.buttons button{padding:10px 20px;border:none;margin-right:10px;cursor:pointer}
+.btn-primary{background:#ff6b4a;color:#fff}
+.btn-outline{background:transparent;border:1px solid #ff6b4a;color:#ff6b4a}
+.hero img{width:300px;border-radius:20px}
 
-        body {
-            font-family: 'Roboto Mono', monospace;
-            background-color: #080a0f; 
-            color: #e5e7eb; 
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            font-size: 1.05rem; 
-        }
+.section{padding:50px}
+.about{display:flex;flex-wrap:wrap;gap:30px}
+.about-text{max-width:600px}
+.stats{display:flex;gap:30px;margin-top:20px}
+.stat{font-size:20px}
 
-        :root {
-            --red-accent: #ff3b30; 
-            --red-dark: #7f1d1d; 
-            --box-bg: #11141c; 
-            --text-muted: #9ca3af;
-        }
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#112d3b;padding:20px;border-radius:10px}
 
-        /* HERO SECTION */
-        .hero {
-            display: flex;
-            justify-content: center; 
-            align-items: center;     
-            text-align: center;      
-            background-color: #030406; 
-            border-bottom: 4px solid var(--red-accent);
-            padding: 80px 20px;
-            min-height: 250px;
-            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.15); 
-        }
+/* FEEDBACK FORM STYLE (merged cleanly) */
+.feedback{max-width:500px;margin:auto}
+form{display:flex;flex-direction:column;gap:15px;margin-top:20px}
+input, textarea{
+background:#0f2a36;
+border:1px solid #1f3f4d;
+color:#fff;
+padding:12px;
+border-radius:8px
+}
+input:focus, textarea:focus{outline:none;border-color:#ff6b4a}
+button.submit-btn{
+background:#ff6b4a;
+border:none;
+padding:12px;
+color:#fff;
+cursor:pointer;
+border-radius:6px
+}
+button.submit-btn:hover{opacity:0.9}
+#successMessage{display:none;color:#00ffae;margin-top:10px;text-align:center}
 
-        .hero-text {
-            max-width: 800px;
-        }
+footer{text-align:center;padding:20px;color:#aaa}
 
-        .hero-text h1 {
-            font-family: 'Teko', sans-serif;
-            color: var(--red-accent);
-            font-size: 7.5rem; 
-            margin: 0;
-            line-height: 0.9;
-            letter-spacing: 2px; 
-            text-shadow: 3px 3px 0px #000000;
-        }
-
-        .hero-text h2 {
-            font-family: 'Teko', sans-serif;
-            color: #ffffff;
-            font-size: 2.5rem;
-            margin: 15px 0 0 0;
-            text-transform: uppercase;
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-
-        .hero-text h3 {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin: 5px 0 0 0;
-            text-transform: uppercase;
-            letter-spacing: 1px; 
-            font-weight: 600;
-        }
-
-        /* BOTTOM SECTION (3-Column Grid) */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 60px 10%;
-            background-color: #080a0f;
-        }
-
-        .card {
-            background-color: var(--box-bg);
-            border: 2px solid #1f2937;
-            border-top: 4px solid var(--red-dark); 
-            border-radius: 0px; 
-            padding: 35px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.9); 
-        }
-
-        .card h2 {
-            font-family: 'Teko', sans-serif;
-            color: var(--red-accent);
-            font-size: 3rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #1f2937;
-            padding-bottom: 10px;
-            line-height: 1;
-        }
-
-        .card p, .card li {
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .card ul {
-            padding-left: 20px;
-        }
-
-        .card strong {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        /* FORM STYLING */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input, textarea {
-            background-color: #030406;
-            border: 2px solid #1f2937;
-            color: #fff;
-            padding: 15px; 
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 600;
-            border-radius: 0px; 
-            font-size: 0.95rem;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--red-accent);
-            box-shadow: inset 4px 0px 0px var(--red-accent); 
-        }
-
-        button {
-            font-family: 'Teko', sans-serif;
-            background-color: var(--red-dark);
-            color: #ffffff;
-            border: 2px solid var(--red-accent); 
-            padding: 10px;
-            cursor: pointer;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            line-height: 1;
-            transition: all 0.2s ease;
-            text-shadow: 1px 1px 2px #000;
-        }
-
-        button:hover {
-            background-color: var(--red-accent);
-            color: #000;
-            text-shadow: none;
-            transform: scale(1.02); 
-        }
-
-        #successMessage {
-            display: none;
-            color: #10b981; 
-            border: 2px solid #065f46;
-            background-color: #022c22;
-            padding: 15px;
-            text-align: center;
-            margin-top: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #4b5563;
-            font-size: 0.9rem;
-            font-weight: 600;
-            background-color: #030406;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-top: 2px solid #1f2937;
-        }
-    </style>
+@media(max-width:768px){
+.hero{flex-direction:column;text-align:center}
+.hero img{margin-top:20px}
+.about{flex-direction:column}
+}
+</style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-text">
-            <h1>ADWIN TOM</h1>
-            <h2>1ST YEAR BSC AI & ML STUDENT</h2>
-            <h3>KRISTU JAYANTI (DEEMED TO BE UNIVERSITY)</h3>
-        </div>
-    </header>
+<header>
+<h2>Adwin Tom</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#feedback">Feedback</a>
+</nav>
+</header>
 
-    <div class="grid-container">
-        <section class="card">
-            <h2>ABOUT ME</h2>
-            <p>Adwin Tom is a highly motivated student diving into the world of artificial intelligence. I am a great learner, positioned at the intersection of modern technology and high-end software development.</p>
-            <p>I am dedicated to mastering new technologies and solving complex problems with cutting-edge solutions.</p>
-        </section>
+<section class="hero">
+<div class="hero-text">
+<h1>Hello, I'm <span>Adwin</span></h1>
+<h2>BSc AI & ML Student</h2>
+<p>Passionate about building smart solutions using AI, business ideas, and modern web technologies.</p>
+<div class="buttons">
+<button class="btn-primary">Hire Me</button>
+<button class="btn-outline">View Resume</button>
+</div>
+</div>
+<img src="https://i.ibb.co/SDQfRZ91/IMG-20260213-183356.jpg" alt="Adwin">
+</section>
 
-        <section class="card">
-            <h2>MY SKILLS</h2>
-            <ul>
-                <li><strong>HTML & CSS:</strong> Creating modern, luxury web environments.</li>
-                <li><strong>Python (Flask):</strong> Building robust backend servers and database connections.</li>
-                <li><strong>C Programming:</strong> Core algorithmic logic and memory management.</li>
-            </ul>
-            <p>> <em>CONTINUOUSLY EXPANDING ARSENAL...</em></p>
-        </section>
+<section class="section about" id="about">
+<div class="about-text">
+<h2>About Me</h2>
+<p>I am a first-year BSc Artificial Intelligence and Machine Learning student at Kristu Jayanti University. I enjoy exploring business ideas, technology, and solving real-world problems through innovation.</p>
+<div class="stats">
+<div class="stat">5+ Projects</div>
+<div class="stat">AI Enthusiast</div>
+<div class="stat">Future Entrepreneur</div>
+</div>
+</div>
+</section>
 
-        <section class="card">
-            <h2>LEAVE FEEDBACK</h2>
-            <form id="feedbackForm">
-                <input type="text" id="visitorName" placeholder="> ENTER_NAME" required>
-                <textarea id="visitorMessage" rows="4" placeholder="> ENTER_MESSAGE" required></textarea>
-                <button type="submit">SUBMIT_DATA</button>
-            </form>
-            <div id="successMessage">DATA RECEIVED. THANK YOU.</div>
-        </section>
-    </div>
+<section class="section" id="projects">
+<h2>Projects</h2>
+<div class="projects">
+<div class="card">AI Chatbot (Basic NLP project)</div>
+<div class="card">Personal Portfolio Website</div>
+<div class="card">Business Idea Pitch Model</div>
+</div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 ADWIN TOM. SYSTEM ONLINE.</p>
-    </footer>
+<!-- FEEDBACK SECTION (from second code) -->
+<section class="section" id="feedback">
+<h2 style="text-align:center">Feedback</h2>
+<div class="feedback">
+<form id="feedbackForm">
+<input type="text" id="visitorName" placeholder="Enter your name" required>
+<textarea id="visitorMessage" rows="4" placeholder="Your message" required></textarea>
+<button type="submit" class="submit-btn">Submit</button>
+</form>
+<div id="successMessage">Thank you! Your message has been received.</div>
+</div>
+</section>
 
-    <script>
-        document.getElementById('feedbackForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); 
-            
-            const typedName = document.getElementById('visitorName').value;
-            const typedMessage = document.getElementById('visitorMessage').value;
-            const submitBtn = document.querySelector('button[type="submit"]');
-            
-            submitBtn.innerText = "TRANSMITTING...";
+<footer>
+<p>Contact: adwintom@email.com</p>
+</footer>
 
-            try {
-                const response = await fetch('/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: typedName, message: typedMessage })
-                });
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', function(event){
+event.preventDefault();
 
-                if (response.ok) {
-                    document.getElementById('feedbackForm').style.display = 'none';
-                    document.getElementById('successMessage').style.display = 'block';
-                } else {
-                    alert("ERROR: Server connection failed.");
-                    submitBtn.innerText = "SUBMIT_DATA";
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("CRITICAL ERROR: Could not connect to database.");
-                submitBtn.innerText = "SUBMIT_DATA";
-            }
-        });
-    </script>
+document.getElementById('feedbackForm').style.display='none';
+document.getElementById('successMessage').style.display='block';
+});
+</script>
 
 </body>
 </html>
